@@ -92,6 +92,7 @@ Manual tests were run on the **Pixel 5 (API 37) emulator inside Android Studio**
 | Leave the pet screen while the timer is active | Timer cancelled; no post-dispose update | Pass. Emulator: back arrow to the home screen, `adb logcat` showed no Flutter errors. Widget test pumps 5 more minutes after leaving with no exception |
 | Visual polish + reduced motion | Derived message, tint/scale, animated meters; reduced motion removes movement | Pass. Emulator: bounce, 🍖/🎾 reaction, gliding bars, speech changes ("Hi, I'm Pip!", "Play with me?", "I'm starving!", "Best day ever!", "I need a rest."). Widget test with `disableAnimations: true` checks zero durations and no bounce |
 | Release APK smoke test | Release build installs and launches | Pass. `flutter build apk --release` (45.8 MB) installed on the Android Studio Pixel 5 emulator, cold launch in 2.7 s, Visit and Feed worked (50/50 → 60/40), and the goal text read "above 80 for 3 minutes", confirming production timers |
+| Release APK on **Pixel 9 Pro XL (API 37.2)** in Android Studio | Release build runs with production timers; real 3 minute win | Pass. Installed `DigitalPet_Nehikhuere.apk`, played to happiness 90, waited a real 3 minutes: "You won! Pip stayed happy for 3 minutes.", hunger stopped at 100, Feed/Play/Pause disabled (screenshot 07) |
 
 ## Screenshots
 
@@ -99,7 +100,11 @@ Manual tests were run on the **Pixel 5 (API 37) emulator inside Android Studio**
 |---|---|---|---|---|---|
 | ![Home](docs/screenshots/01_home.png) | ![Neutral](docs/screenshots/02_neutral.png) | ![Play reaction](docs/screenshots/03_play_reaction.png) | ![Happy](docs/screenshots/04_happy.png) | ![Paused](docs/screenshots/05_paused.png) | ![Game over](docs/screenshots/06_game_over.png) |
 
-All screenshots are real captures from the Android Studio Pixel 5 emulator (`adb shell screencap`).
+**Win on Pixel 9 Pro XL (release APK, real 3 minute timer):**
+
+<img src="docs/screenshots/07_win_pixel9.png" alt="Win on Pixel 9 Pro XL" width="260">
+
+All screenshots are real captures from the Android Studio Pixel 5 and Pixel 9 Pro XL emulators (`adb shell screencap`).
 
 ## Collaboration evidence
 
